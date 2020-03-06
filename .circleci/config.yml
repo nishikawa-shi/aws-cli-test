@@ -14,6 +14,10 @@ jobs:
           name: this is build test
           command: |
             echo "this is build test"
+      - run:
+          name: ls
+          command: |
+            ls -latr
   deploy_dev:
     docker:
     executor: sam/default
