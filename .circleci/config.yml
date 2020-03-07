@@ -26,6 +26,11 @@ jobs:
       - run:
           name: ls
           command: ls -latr
+      - sam/install
+      - run:
+          name: completed!
+          command: |
+            echo "omedetou- nyan"
 workflows:
   build_deploy:
     jobs:
@@ -36,6 +41,7 @@ workflows:
                 - master
                 - feature/add_sam_install
       - deploy_dev:
+          context: sam-cli-test
           requires:
             - build
           filters:
