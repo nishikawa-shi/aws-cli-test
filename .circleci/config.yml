@@ -23,6 +23,7 @@ jobs:
     executor: sam/default
     steps:
       - checkout
+      - sam/install
       - run:
           name: sam version
           command: sam --version
