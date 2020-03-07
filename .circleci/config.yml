@@ -23,10 +23,9 @@ jobs:
     executor: sam/default
     steps:
       - checkout
-      - sam/install
       - run:
-          name: sam version
-          command: sam --version
+          name: ls
+          command: ls -latr
 workflows:
   build_deploy:
     jobs:
