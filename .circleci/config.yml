@@ -34,6 +34,7 @@ workflows:
             branches:
               only:
                 - master
+                - feature/add_sam_install
       - deploy_dev:
           requires:
             - build
@@ -41,3 +42,4 @@ workflows:
             branches:
               only:
                 - master
+                - feature/add_sam_install
