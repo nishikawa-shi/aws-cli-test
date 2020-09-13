@@ -38,7 +38,7 @@ jobs:
           command: |
             brew --version
             brew tap aws/tap
-            brew install aws-sam-cli
+            brew install aws-sam-cli@0.52.0
       # - run:
       #     name: nekosan
       #     command: |
@@ -57,12 +57,12 @@ jobs:
       - run:
           name: aws check
           command: |
-            ls -latr /home/linuxbrew/
-            ls -latr /home/linuxbrew/.linuxbrew/
-            ls -latr /home/linuxbrew/.linuxbrew/Cellar/
-            ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli
-            ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli/1.2.0
-            # sam --version
+            # ls -latr /home/linuxbrew/
+            # ls -latr /home/linuxbrew/.linuxbrew/
+            # ls -latr /home/linuxbrew/.linuxbrew/Cellar/
+            # ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli
+            # ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli/1.2.0
+            sam --version
       - run:
           name: completed!
           command: |
