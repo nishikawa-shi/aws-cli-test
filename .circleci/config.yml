@@ -36,9 +36,11 @@ jobs:
             echo 'export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/python@3.7/include"' >> $BASH_ENV
             echo 'export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/lib/pkgconfig"' >> $BASH_ENV
             source $BASH_ENV
-            ls -latr /home/linuxbrew/.linuxbrew/
+            sudo mkdir -p /home/linuxbrew/.linuxbrew/opt/python@3.7/bin/
+            sudo mkdir -p /home/linuxbrew/.linuxbrew/
+            sudo ls -latr /home/linuxbrew/.linuxbrew/
             sudo ln -s /home/linuxbrew/.linuxbrew/opt/python@3.7/bin/ /home/linuxbrew/.linuxbrew/bin/
-            ls -latr /home/linuxbrew/.linuxbrew/
+            sudo ls -latr /home/linuxbrew/.linuxbrew/
       - run:
           name: print export path
           command: |
