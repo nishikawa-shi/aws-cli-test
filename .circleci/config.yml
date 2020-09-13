@@ -62,6 +62,8 @@ jobs:
             # ls -latr /home/linuxbrew/.linuxbrew/Cellar/
             # ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli
             # ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli/1.2.0
+            which sam
+            which brew
             sam --version
       - run:
           name: completed!
