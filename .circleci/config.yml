@@ -57,6 +57,10 @@ jobs:
       - run:
           name: aws check
           command: |
+            ls -latr /home/linuxbrew/
+            ls -latr /home/linuxbrew/.linuxbrew/
+            ls -latr /home/linuxbrew/.linuxbrew/Cellar/
+            ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli
             ls -latr /home/linuxbrew/.linuxbrew/Cellar/aws-sam-cli/1.2.0
             # sam --version
       - run:
