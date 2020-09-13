@@ -33,10 +33,10 @@ jobs:
           command: |
             curl -fsSL "https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh" | bash
             /home/linuxbrew/.linuxbrew/bin/brew shellenv >> $BASH_ENV
-            brew --version
       - run:
           name: brew aws cli
           command: |
+            brew --version
             brew tap aws/tap
             brew install aws-sam-cli
       # - run:
