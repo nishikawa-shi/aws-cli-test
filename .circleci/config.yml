@@ -26,6 +26,15 @@ jobs:
       - run:
           name: ls
           command: ls -latr
+      - run:
+          name: print export path
+          command: echo $PATH
+      - run:
+          name: add export path
+          command: export PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH"
+      - run:
+          name: print export path2
+          command: echo $PATH
       - sam/install
       - run:
           name: completed!
