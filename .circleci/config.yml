@@ -54,7 +54,10 @@ jobs:
       #       echo $CPPFLAGS
       #       echo $PKG_CONFIG_PATH
       - checkout
-      - sam/install
+      - run:
+          name: aws check
+          command: |
+            sam --version
       - run:
           name: completed!
           command: |
