@@ -20,23 +20,17 @@ jobs:
             ls -latr
   deploy_dev:
     environment:
-      PATH: /home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH
+      PATH: /home/linuxbrew/.linuxbrew/opt/python@3.7/bin/:$PATH
     docker:
     executor: sam/default
     steps:
-      - checkout
       - run:
           name: ls
           command: ls -latr
       - run:
           name: print export path
           command: echo $PATH
-      - run:
-          name: extend  path
-          command: PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH"
-      - run:
-          name: print export path2
-          command: echo $PATH
+      - checkout
       - sam/install
       - run:
           name: completed!
