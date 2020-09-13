@@ -38,7 +38,7 @@ jobs:
           command: |
             brew --version
             brew tap aws/tap
-            brew install aws-sam-cli@1.1.0
+            brew install --build-from-source aws-sam-cli
       # - run:
       #     name: nekosan
       #     command: |
