@@ -30,8 +30,8 @@ jobs:
           name: print export path
           command: echo $PATH
       - run:
-          name: add export path
-          command: export PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH"
+          name: extend  path
+          command: PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH"
       - run:
           name: print export path2
           command: echo $PATH
