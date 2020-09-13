@@ -31,7 +31,7 @@ jobs:
       - run:
           name: nekosan
           command: |
-            echo 'export PATH=/home/linuxbrew/.linuxbrew/opt/python@3.7/bin/:$PATH' >> $BASH_ENV
+            echo 'export PATH=/home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH' >> $BASH_ENV
             echo 'export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/python@3.7/lib"' >> $BASH_ENV
             echo 'export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/python@3.7/include"' >> $BASH_ENV
             echo 'export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/lib/pkgconfig"' >> $BASH_ENV
