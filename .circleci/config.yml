@@ -30,7 +30,12 @@ jobs:
           command: echo $PATH
       - run:
           name: nekosan
-          command:  echo 'export PATH=/home/linuxbrew/.linuxbrew/opt/python@3.7/bin/:$PATH' >> $BASH_ENV
+          command: |
+            echo 'export PATH=/home/linuxbrew/.linuxbrew/opt/python@3.7/bin/:$PATH' >> $BASH_ENV
+            source $BASH_ENV
+      - run:
+          name: print export path
+          command: echo $PATH
       - checkout
       - sam/install
       - run:
