@@ -19,8 +19,6 @@ jobs:
           command: |
             ls -latr
   deploy_dev:
-    environment:
-      PATH: /home/linuxbrew/.linuxbrew/opt/python@3.7/bin/:$PATH
     docker:
     executor: sam/default
     steps:
@@ -30,6 +28,9 @@ jobs:
       - run:
           name: print export path
           command: echo $PATH
+      - run:
+          name: nekosan
+          command:  echo 'export PATH=/home/linuxbrew/.linuxbrew/opt/python@3.7/bin/:$PATH' >> $BASH_ENV
       - checkout
       - sam/install
       - run:
