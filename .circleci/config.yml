@@ -29,19 +29,33 @@ jobs:
           name: print export path
           command: echo $PATH
       - run:
-          name: nekosan
+          name: brew ireru
           command: |
-            echo 'export PATH=/home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH' >> $BASH_ENV
-            echo 'export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/python@3.7/lib"' >> $BASH_ENV
-            echo 'export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/python@3.7/include"' >> $BASH_ENV
-            echo 'export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/lib/pkgconfig"' >> $BASH_ENV
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+            test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+            test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+            test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+            echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+            brew --version
       - run:
-          name: print export path
+          name: brew aws cli
           command: |
-            echo $PATH
-            echo $LDFLAGS
-            echo $CPPFLAGS
-            echo $PKG_CONFIG_PATH
+            brew tap aws/tap
+            brew install aws-sam-cli
+      # - run:
+      #     name: nekosan
+      #     command: |
+      #       echo 'export PATH=/home/linuxbrew/.linuxbrew/opt/python@3.7/bin:$PATH' >> $BASH_ENV
+      #       echo 'export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/python@3.7/lib"' >> $BASH_ENV
+      #       echo 'export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/python@3.7/include"' >> $BASH_ENV
+      #       echo 'export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/python@3.7/lib/pkgconfig"' >> $BASH_ENV
+      # - run:
+      #     name: print export path
+      #     command: |
+      #       echo $PATH
+      #       echo $LDFLAGS
+      #       echo $CPPFLAGS
+      #       echo $PKG_CONFIG_PATH
       - checkout
       - sam/install
       - run:
